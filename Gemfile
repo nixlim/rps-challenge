@@ -4,7 +4,9 @@ ruby '2.5.0'
 
 gem 'haml'
 gem 'rake'
+gem "faye-websocket"
 gem 'sinatra'
+gem "puma"
 
 group :test do
   gem 'capybara'
