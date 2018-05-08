@@ -2,6 +2,6 @@
 .centre
   %h1= "#{@player1_name}, you chose #{@player1_choice}"
 
-  %h1= "#{@player2_name} chose #{@player2_choice}"
+  %h1= @player2_name + ' chose ' + @player2_choice.to_s
 
   = haml(@game.draw?)

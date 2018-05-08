@@ -6,6 +6,7 @@ module RpsWeb
   class MultiplayerBackend
     KEEPALIVE_TIME = 15
 
+
     def initialize(app)
       @app = app
       @clients = []
@@ -18,6 +19,9 @@ module RpsWeb
         ws.on :open do |event|
           p [:open, ws.__id__]
           @clients << ws
+          @connection = ws.__id__
+          @clients.each { |ws| ws.send(@connection) }
+
         end
 
         ws.on :message do |event|

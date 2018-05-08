@@ -6,6 +6,7 @@ require './lib/computer'
 
 module RpsWeb
   class RPC < Sinatra::Base
+    enable :sessions
 
     before do
       @game = GameEngine.create_game
@@ -18,7 +19,7 @@ module RpsWeb
     get "/assets/js/application.js" do
       content_type :js
       @scheme = "ws://"
-      haml :"application.js"
+      erb :"application.js"
     end
 
     get '/weapon_choice' do
